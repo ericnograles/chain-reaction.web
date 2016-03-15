@@ -7,10 +7,13 @@ export NVM_DIR=~/.nvm
 nvm install 4.3.1
 
 # Global prerequisites
-npm install -g webpack webpack-dev-server
+npm install -g npm3
+
+# Globals for npm3
+npm3 install -g webpack webpack-dev-server
 
 # Local NPM install
-npm install
+npm3 install
 
 # Webpack
 webpack
