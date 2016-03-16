@@ -15,7 +15,7 @@ require('./assets/images/react-favicon.ico');
 
 ReactDOM.render(
   <Provider store={store}>
-    <App store={store} common={common} />
+    <App store={store} />
   </Provider>,
   document.getElementById('app')
 );
