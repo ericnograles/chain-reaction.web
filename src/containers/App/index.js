@@ -23,6 +23,8 @@ export default class App extends Component {
     var user = this.props.store.getState().user;
     if (user.status === 'authenticated') {
       localStorage['CR_PROFILE'] = JSON.stringify(user);
+    } else {
+      delete localStorage['CR_PROFILE'];
     }
   }
 
