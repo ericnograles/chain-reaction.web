@@ -32,6 +32,7 @@ export default class App extends Component {
     if (localStorage['CR_PROFILE']) {
       var user = JSON.parse(localStorage['CR_PROFILE']);
       this.props.store.dispatch(common.actions.receiveLogin(user.email, {data: user.profile}));
+      browserHistory.replace('/sample');
     }
   }
 
