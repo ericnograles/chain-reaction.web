@@ -1,14 +1,49 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
+import LoginForm from '../../components/LoginForm';
+import * as common from 'chain-reaction.common';
 
-export default class Home extends Component {
+class Home extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
+    this.handlePassword = this.handlePassword.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user.status === 'authenticated') {
+      browserHistory.push('/sample');
+    }
+  }
+
+  handleEmail(event) {
+    this.props.dispatch(common.actions.keyPressEmail(event.target.value))
+  }
+
+  handlePassword(event) {
+    this.props.dispatch(common.actions.keyPressPassword(event.target.value));
+  }
+
+  handleLogin() {
+    const { dispatch, email, password } = this.props;
+    dispatch(common.actions.requestLogin(email));
+    dispatch(common.actions.login(email, password));
+  }
+
   render() {
+    const { email, password, user } = this.props;
+    const hasLoginError = this.props.user.error;
+
     return (
       <div className="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
         <header className="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
           <div className="mdl-layout__header-row">
-            <span className="mdl-layout-title">React for Complete Beginners</span>
+            <span className="mdl-layout-title">Chain Reaction</span>
             <div className="mdl-layout-spacer"></div>
-            {/*<div className="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <div className="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
               <label className="mdl-button mdl-js-button mdl-button--icon" htmlFor="search">
                 <i className="material-icons">search</i>
               </label>
@@ -16,7 +51,7 @@ export default class Home extends Component {
                 <input className="mdl-textfield__input" type="text" id="search" />
                 <label className="mdl-textfield__label" htmlFor="search">Enter your query...</label>
               </div>
-            </div>*/}
+            </div>
           </div>
         </header>
         <div className="demo-ribbon"></div>
@@ -24,21 +59,15 @@ export default class Home extends Component {
           <div className="demo-container mdl-grid">
             <div className="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
             <div className="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
-              {/*<div className="demo-crumbs mdl-color-text--grey-500">
-                Google &gt; Material Design Lite &gt; How to install MDL
-              </div>*/}
-              <h3>Getting Started</h3>
-              <p>
-                React is a framework based on components.  Instead of building webpages as huge pieces of DOM states, we tend to think of each page as a "container" for "components".
-              </p>
-              <h3>Component States</h3>
-              <p>
-                In practice, only containers should be stateful.  Components should be as stateless as possible.  This is not a hard and fast rule, as there could be scenarios where you must maintain state in a component -- for example, to initiate animations.
-              </p>
-              <h3>Unidirectional Binding</h3>
-              <p>
-                There are two accepted architectures for data flow and binding in React: Flux and Redux.  Both, while mechanically similar, have some key differences.
-              </p>
+              <LoginForm email={email}
+                         password={password}
+                         user={user}
+                         handleEmail={this.handleEmail}
+                         handlePassword={this.handlePassword}
+                         handleLogin={this.handleLogin} />
+              <div className="login-error">
+                {hasLoginError ? 'Error logging in. ' + this.props.user.error : null}
+              </div>
             </div>
           </div>
           <footer className="demo-footer mdl-mini-footer">
@@ -54,3 +83,18 @@ export default class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  dispatch: PropTypes.func.isRequired
+};
+
+function mapStateToProps(state) {
+  const { email, password, user } = state;
+  return {
+    email,
+    password,
+    user
+  };
+}
+
+export default connect(mapStateToProps)(Home);
