@@ -6,6 +6,7 @@ import App from './containers/App';
 import * as common from 'chain-reaction.common';
 
 const store = common.configureStore();
+console.log('The API path is ' + API_PATH);
 
 // Images and icons
 require('./assets/images/react-favicon.ico');
@@ -18,7 +19,6 @@ require('../node_modules/material-design-lite/dist/material.min.js');
 
 // Vendor CSS
 require('../node_modules/material-design-lite/dist/material.grey-indigo.min.css');
-
 
 ReactDOM.render(
   <Provider store={store}>
