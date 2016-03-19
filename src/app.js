@@ -7,6 +7,9 @@ import * as common from 'chain-reaction.common';
 
 const store = common.configureStore();
 
+// Images and icons
+require('./assets/images/react-favicon.ico');
+
 // Stylesheets
 require('./assets/styles/main.css');
 
@@ -16,8 +19,6 @@ require('../node_modules/material-design-lite/dist/material.min.js');
 // Vendor CSS
 require('../node_modules/material-design-lite/dist/material.grey-indigo.min.css');
 
-// Images and icons
-require('./assets/images/react-favicon.ico');
 
 ReactDOM.render(
   <Provider store={store}>
