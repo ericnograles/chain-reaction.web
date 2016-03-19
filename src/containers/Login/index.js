@@ -27,7 +27,8 @@ class Login extends Component {
     this.props.dispatch(common.actions.keyPressPassword(event.target.value));
   }
 
-  handleLogin() {
+  handleLogin(event) {
+    event.preventDefault();
     const { dispatch, email, password } = this.props;
     dispatch(common.actions.requestLogin(email));
     dispatch(common.actions.login(email, password));

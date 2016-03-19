@@ -6,10 +6,24 @@ export default class LoginForm extends Component {
     var buttonText = user.status === 'authenticating' ? 'Logging in...' : 'Login';
 
     return (
-      <div className="loginForm">
-        Email: <input type="text" onChange={handleEmail} /> <br />
-        Password: <input type="text" onChange={handlePassword} /> <br />
-        <input type="button" value={buttonText} onClick={handleLogin} />
+      <div className="form-container horizontal-centered">
+        <div className="form-field horizontal-centered">
+          <div className="mdl-textfield mdl-js-textfield">
+            <input className="mdl-textfield__input" type="text" id="email" onChange={handleEmail} />
+            <label className="mdl-textfield__label" htmlFor="email">Email address...</label>
+          </div>
+        </div>
+        <div className="form-field horizontal-centered">
+          <div className="mdl-textfield mdl-js-textfield">
+            <input className="mdl-textfield__input" type="password" id="password" onChange={handlePassword} />
+            <label className="mdl-textfield__label" htmlFor="password">Password</label>
+          </div>
+        </div>
+        <div className="form-field horizontal-centered">
+          <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onClick={handleLogin}>
+            {buttonText}
+          </button>
+        </div>
       </div>
     );
   }

@@ -71,14 +71,6 @@ class Home extends Component {
                 </div>
               </div>
             </div>
-            <footer className="demo-footer mdl-mini-footer">
-              <div className="mdl-mini-footer--left-section">
-                <ul className="mdl-mini-footer--link-list">
-                  <li><a href="https://facebook.github.io/react/docs/getting-started.html">React Documentation</a></li>
-                  <li><a href="https://github.com/facebook/react">React GitHub</a></li>
-                </ul>
-              </div>
-            </footer>
           </main>
         </div>
       </div>

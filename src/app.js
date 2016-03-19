@@ -11,7 +11,10 @@ const store = common.configureStore();
 require('./assets/styles/main.css');
 
 // Vendor JS
-require ('../node_modules/material-design-lite/dist/material.min.js');
+require('../node_modules/material-design-lite/dist/material.min.js');
+
+// Vendor CSS
+require('../node_modules/material-design-lite/dist/material.grey-indigo.min.css');
 
 // Images and icons
 require('./assets/images/react-favicon.ico');
