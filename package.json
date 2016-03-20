@@ -7,7 +7,7 @@
     "node": "4.3.x"
   },
   "scripts": {
-    "test": "npm test",
+    "test": "mocha --compilers js:babel-core/register --require ./tests/setup.js ./src/**/*.test.js",
     "start": "./start.sh"
   },
   "repository": {
@@ -39,6 +39,7 @@
     "expect": "^1.15.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
+    "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "mocha-loader": "^0.7.1",
     "null-loader": "^0.1.1",
