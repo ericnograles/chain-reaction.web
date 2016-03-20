@@ -4,7 +4,7 @@
 
 This is the web project of the [Chain Reaction](https://github.com/ericnograles/chain-reaction) multi-platform sample project.
 
-The goal of this project was to create as minimal of a web baseline as possible nothing but [React](https://facebook.github.io/react/), [Webpack](https://webpack.github.io/), and [Babel](https://babeljs.io/)
+The goal of this project was to create as minimal of a web baseline as possible, using nothing but [React](https://facebook.github.io/react/), [Webpack](https://webpack.github.io/), and [Babel](https://babeljs.io/)
 
 ## Installation
 
