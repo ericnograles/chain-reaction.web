@@ -16,7 +16,9 @@ npm3 install -g webpack webpack-dev-server
 npm3 install
 
 # Webpack
-webpack
+webpack --config webpack.config.js
+webpack --config webpack.tests.config.js
 
-# Start the dev server
-webpack-dev-server --content-base dist/
+# Start the dev server and unit test server
+trap 'kill %1' SIGINT
+webpack-dev-server --config webpack.config.js --content-base dist/ --inline & webpack-dev-server --config webpack.tests.config.js  --content-base unit-tests/ --inline

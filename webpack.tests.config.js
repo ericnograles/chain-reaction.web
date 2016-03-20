@@ -9,13 +9,13 @@ module.exports = {
   } ,
   output: {
     filename: 'test.build.js',
-    path: __dirname + "/unit-tests",
-    publicPath: 'http://' + hostname + ':' + port + '/tests'
+    path: __dirname + "/unit-tests"
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
+        exclude: /node_modules/,
         loader: 'babel',
         query:
         {
