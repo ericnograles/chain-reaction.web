@@ -1,3 +1,4 @@
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var hostname = 'localhost';
 var port = 8081;
 
@@ -23,11 +24,8 @@ module.exports = {
         }
       },
       {
-        test: /(\.css|\.less)$/,
-        loader: 'null-loader',
-        exclude: [
-          /build/
-        ]
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       },
       {
         test: /(\.jpg|\.jpeg|\.png|\.gif)$/,
@@ -39,6 +37,9 @@ module.exports = {
       },
     ]
   },
+  plugins: [
+    new ExtractTextPlugin("mocha.css")
+  ],
   devServer: {
     host: hostname,
     port: port
