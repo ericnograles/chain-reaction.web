@@ -29,6 +29,9 @@ All web application related code will be dropped into the `/dist` folder of the 
         * **/images**: Any images you need for your website
         * **/styles**: Any CSS files you need for your website
 * **/tests**: Supporting code for Mocha unit tests
+    * **index.html**: The hosting web page for the Mocha tests, hosted on `http://localhost:8081`
+    * **index.js**: A supporting file run by the [Webpack Mocha Loader](https://github.com/webpack/mocha-loader) of `webpack.tests.config.js` that dynamically brings in all `.test.js` files
+    * **setup.js**: A supporting file used by `npm test` to bring in [jsdom](https://github.com/tmpvar/jsdom) so that unit tests can run from the command line for CI purposes
 
 ## Unit Tests
 
