@@ -42,6 +42,7 @@
     "mocha": "^2.4.5",
     "mocha-loader": "^0.7.1",
     "null-loader": "^0.1.1",
+    "react-addons-test-utils": "^0.14.7",
     "redux-devtools": "^3.1.1",
     "source-map-loader": "^0.1.5",
     "static-loader": "^0.1.8",
