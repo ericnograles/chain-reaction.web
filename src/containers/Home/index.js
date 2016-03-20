@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import LoginForm from '../../components/LoginForm';
-import * as common from 'chain-reaction.common';
+import * as common from '../../../../chain-reaction.common/src';
 
 class Home extends Component {
   constructor(props) {

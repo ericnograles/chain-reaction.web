@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import Hello from '../../components/Hello/Hello';
 
-import * as common from 'chain-reaction.common';
+import * as common from '../../../../chain-reaction.common/src';
 
 class Sample extends Component {
   constructor(props) {

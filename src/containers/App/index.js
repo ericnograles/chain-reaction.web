@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
-import * as common from 'chain-reaction.common';
+import * as common from '../../../../chain-reaction.common/src';
 
 import Home from '../Home';
 import Sample from '../Sample';

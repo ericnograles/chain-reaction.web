@@ -21,7 +21,6 @@
     "babel-polyfill": "^6.6.1",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
-    "chain-reaction.common": "git://github.com/ericnograles/chain-reaction.common.git",
     "firebase": "^2.4.1",
     "isomorphic-fetch": "^2.2.1",
     "material-design-lite": "^1.1.1",

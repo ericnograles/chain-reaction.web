@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var currentEnvironment = process.env.NODE_ENV || 'dev';
 
@@ -50,6 +51,12 @@ module.exports = {
 
   devServer: {
     historyApiFallback: true
+  },
+
+  // Need to set this so webpack won't attempt to load node_modules in chain-reaction.common
+  // In relation to the folder we are referencing
+  resolveLoader: {
+    root: path.join(__dirname, 'node_modules')
   },
 
   output: {
