@@ -36,6 +36,8 @@ This project has a `webpack.tests.config.js` file which launches a Mocha test ru
 
 A personal recommendation would be to sit these `.test.js` files alongside their constituent components or containers for ease of navigation.  However, this is simply a recommendation and not a hard and fast rule, so use what works best for you!
 
+Additionally, we can run our unit tests in a headless fashion for CI purposes.  Simply run `npm test` to see the results.
+
 ## Images and CSS
 
 ### New Assets
