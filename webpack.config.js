@@ -12,12 +12,7 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loader: "source-map-loader"
-      }
-    ],
+    preLoaders: config.WEBPACK.preLoaders,
     loaders: [
       {
         test: /\.js$/,
@@ -65,5 +60,5 @@ module.exports = {
     path: __dirname + "/dist",
   },
 
-  devtool: 'source-map',
+  devtool: config.WEBPACK.devtool,
 }
