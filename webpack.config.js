@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var currentEnvironment = process.env.NODE_ENV || 'dev';
+var config = require('./config/' + currentEnvironment);
 
 module.exports = {
   context: __dirname + "/src",
@@ -45,7 +46,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin("app.css"),
     new webpack.DefinePlugin({
-      API_PATH: '"' + require('./config/' + currentEnvironment).API_PATH + '"'
+      API_PATH: '"' + config.API_PATH + '"'
     })
   ],
 

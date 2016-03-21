@@ -1,3 +1,6 @@
 module.exports = {
-  API_PATH: 'https://chain-reaction-api-qa.herokuapp.com'
+  API_PATH: 'https://chain-reaction-api-qa.herokuapp.com',
+  WEBPACK: {
+    devtool: 'eval'
+  }
 };
