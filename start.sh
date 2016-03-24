@@ -15,6 +15,9 @@ npm3 install -g webpack webpack-dev-server
 # Local NPM install
 npm3 install
 
+# Symlink the chain-reaction.common library
+npm3 link chain-reaction.common
+
 # Webpack
 webpack --config webpack.config.js
 webpack --config webpack.tests.config.js
