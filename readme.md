@@ -14,7 +14,7 @@ See the [Chain Reaction](https://github.com/ericnograles/chain-reaction) repo.  
 
 1. After completing the Installation Instructions above, simply run `./start.sh` whilst in the chain-reaction.web root.
 2. Browse to `http://localhost:8080` for the web app.
-3. Browse to `http://localhost:8081` for the mocha unit tests.
+3. Browse to `http://localhost:8082` for the mocha unit tests.
 
 Note that any changes/additions to either the web app or unit tests will be automatically detected and reloaded in your browser.
 
