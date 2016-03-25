@@ -1,16 +1,17 @@
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 var hostname = 'localhost';
 var port = 8082;
 
 module.exports = {
-  context: __dirname + "/tests",
+  context: __dirname + '/tests',
   entry: {
     javascript: 'mocha!./index.js',
     html: './index.html'
   } ,
   output: {
     filename: 'test.build.js',
-    path: __dirname + "/unit-tests"
+    path: __dirname + '/unit-tests'
   },
   module: {
     loaders: [
@@ -25,7 +26,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       },
       {
         test: /(\.jpg|\.jpeg|\.png|\.gif)$/,
@@ -33,12 +34,13 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: "file?name=[name].[ext]",
+        loader: 'file?name=[name].[ext]',
       },
     ]
   },
   plugins: [
-    new ExtractTextPlugin("mocha.css")
+    new ExtractTextPlugin('mocha.css'),
+    new OpenBrowserPlugin({ url: 'http://' + hostname + ':' + port })
   ],
   devServer: {
     host: hostname,

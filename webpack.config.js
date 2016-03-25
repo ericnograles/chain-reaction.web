@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 var currentEnvironment = process.env.NODE_ENV || 'dev';
 var config = require('./config/' + currentEnvironment);
 
@@ -17,7 +18,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel",
+        loader: 'babel',
         query:
         {
           presets:['react', 'es2015']
@@ -25,15 +26,15 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: "file?name=[name].[ext]",
+        loader: 'file?name=[name].[ext]',
       },
       {
         test: /\.jpe?g$|\.gif$|\.ico$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
-        loader: "file?name=images/[name].[ext]"
+        loader: 'file?name=images/[name].[ext]'
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       }
     ],
   },
@@ -42,7 +43,8 @@ module.exports = {
     new ExtractTextPlugin("app.css"),
     new webpack.DefinePlugin({
       API_PATH: '"' + config.API_PATH + '"'
-    })
+    }),
+    new OpenBrowserPlugin({ url: 'http://localhost:8080' })
   ],
 
   devServer: {
@@ -56,8 +58,8 @@ module.exports = {
   },
 
   output: {
-    filename: "app.js",
-    path: __dirname + "/dist",
+    filename: 'app.js',
+    path: __dirname + '/dist',
   },
 
   devtool: config.WEBPACK.devtool,
