@@ -7,7 +7,7 @@ import * as common from 'chain-reaction.common';
 //import * as common from '../../chain-reaction.common/src';
 
 const store = common.configureStore();
-console.log('The API path is ' + API_PATH);
+console.log('The API path is ' + window.API_PATH);
 
 // Images and icons
 require('./assets/images/react-favicon.ico');

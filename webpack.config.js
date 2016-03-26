@@ -42,7 +42,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin("app.css"),
     new webpack.DefinePlugin({
-      API_PATH: '"' + config.API_PATH + '"'
+      'window.API_PATH': '"' + config.API_PATH + '"'
     }),
     new OpenBrowserPlugin({ url: 'http://localhost:8080' })
   ],
