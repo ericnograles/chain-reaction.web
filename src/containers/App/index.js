@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
-import * as common from '../../../../chain-reaction.common/src';
+import * as common from 'chain-reaction.common';
 
 import Home from '../Home';
 import Sample from '../Sample';
 import Login from '../Login';
+import Memes from '../Memes';
 
 export default class App extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ export default class App extends Component {
     if (localStorage['CR_PROFILE']) {
       var user = JSON.parse(localStorage['CR_PROFILE']);
       this.props.store.dispatch(common.actions.receiveLogin(user.email, {data: user.profile}));
-      browserHistory.replace('/sample');
+      //browserHistory.replace('/sample');
     }
   }
 
@@ -56,6 +57,7 @@ export default class App extends Component {
         <Route path="/" component={Home}></Route>
         <Route path="/login" component={Login}></Route>
         <Route path="/sample" component={Sample} onEnter={this.requireAuth}></Route>
+        <Route path="/memes" component={Memes} onEnter={this.requireAuth}></Route>
         <Route path="*" component={Home}></Route>
       </Router>
     );
