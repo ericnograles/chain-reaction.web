@@ -9,7 +9,7 @@ class Memes extends Component {
   constructor(props) {
     super(props);
 
-    this.handleLogout = this.refreshMemes.bind(this);
+    this.refreshMemes = this.refreshMemes.bind(this);
   }
 
   componentDidMount() {
