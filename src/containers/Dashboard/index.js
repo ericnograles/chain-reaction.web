@@ -3,18 +3,12 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
 import * as common from 'chain-reaction.common';
-import Meme from '../../components/Meme';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
 
-    this.refreshMemes = this.refreshMemes.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.dispatch(common.actions.findMemes());
   }
 
   handleLogout() {
@@ -23,28 +17,14 @@ class Dashboard extends Component {
     browserHistory.replace('/');
   }
 
-  refreshMemes() {
-    this.props.dispatch(common.actions.findMemes());
-  }
-
   render() {
-    var { memes, user } = this.props;
-    var memeImages;
-
-    if (memes && memes.results) {
-      memeImages = memes.results.map(memeUrl => {
-        return (
-          <Meme url={memeUrl} />
-        );
-      });
-    }
+    var { user } = this.props;
     return (
       <div className="meme-container">
         <div className="welcome">
           Welcome to Chain Reaction, {user.email}
           <input type="button" value="Log Out" onClick={this.handleLogout} />
         </div>
-        {memeImages}
       </div>
     )
   }
@@ -55,10 +35,9 @@ Dashboard.propTypes = {
 };
 
 function mapStateToProps(state) {
-  const { user, memes } = state;
+  const { user } = state;
   return {
-    user,
-    memes
+    user
   };
 }
 
