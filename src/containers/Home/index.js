@@ -15,7 +15,7 @@ class Home extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.user.status === 'authenticated') {
-      browserHistory.push('/sample');
+      browserHistory.push('/dashboard');
     }
   }
 
