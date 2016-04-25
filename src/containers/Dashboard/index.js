@@ -35,7 +35,7 @@ class Dashboard extends Component {
     if (memes && memes.results) {
       memeImages = memes.results.map(memeUrl => {
         return (
-          <Meme url={memeUrl} />
+          <Meme key={memeUrl} url={memeUrl} />
         );
       });
     }
