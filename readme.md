@@ -29,7 +29,7 @@ All web application related code will be dropped into the `/dist` folder of the 
         * **/images**: Any images you need for your website
         * **/styles**: Any CSS files you need for your website
 * **/tests**: Supporting code for Mocha unit tests
-    * **index.html**: The hosting web page for the Mocha tests, hosted on `http://localhost:8081`
+    * **index.html**: The hosting web page for the Mocha tests, hosted on `http://localhost:8082`
     * **index.js**: A supporting file run by the [Webpack Mocha Loader](https://github.com/webpack/mocha-loader) of `webpack.tests.config.js` that dynamically brings in all `.test.js` files
     * **setup.js**: A supporting file used by `npm test` to bring in [jsdom](https://github.com/tmpvar/jsdom) so that unit tests can run from the command line for CI purposes
 * **webpack.node.js**: If you prefer your Webpack run through Node itself, use this file
@@ -53,7 +53,7 @@ The primary role of a Component is simply visual.  A Component remains stateless
 
 ## Unit Tests
 
-This project has a `webpack.tests.config.js` file which launches a Mocha test runner on `http://localhost:8081`.  As you will see in the configuration, simply adding a file with a extension of `.test.js` will include it in the test suite.
+This project has a `webpack.tests.config.js` file which launches a Mocha test runner on `http://localhost:8082`.  As you will see in the configuration, simply adding a file with a extension of `.test.js` will include it in the test suite.
 
 A personal recommendation would be to sit these `.test.js` files alongside their constituent components or containers for ease of navigation.  However, this is simply a recommendation and not a hard and fast rule, so use what works best for you!
 

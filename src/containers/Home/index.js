@@ -19,6 +19,10 @@ class Home extends Component {
     }
   }
 
+  componentDidMount() {
+    componentHandler.upgradeDom();
+  }
+
   handleEmail(event) {
     this.props.dispatch(common.actions.keyPressEmail(event.target.value))
   }
@@ -44,15 +48,6 @@ class Home extends Component {
             <div className="mdl-layout__header-row">
               <span className="mdl-layout-title">Chain Reaction</span>
               <div className="mdl-layout-spacer"></div>
-              <div className="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                <label className="mdl-button mdl-js-button mdl-button--icon" htmlFor="search">
-                  <i className="material-icons">search</i>
-                </label>
-                <div className="mdl-textfield__expandable-holder">
-                  <input className="mdl-textfield__input" type="text" id="search" />
-                  <label className="mdl-textfield__label" htmlFor="search">Enter your query...</label>
-                </div>
-              </div>
             </div>
           </header>
           <div className="demo-ribbon"></div>
