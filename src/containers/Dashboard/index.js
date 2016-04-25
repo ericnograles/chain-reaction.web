@@ -11,6 +11,10 @@ class Dashboard extends Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
 
+  componentDidMount() {
+    componentHandler.upgradeDom();
+  }
+
   handleLogout() {
     this.props.dispatch(common.actions.logout());
     delete localStorage['CR_PROFILE'];
@@ -27,7 +31,10 @@ class Dashboard extends Component {
               <span className="mdl-layout-title">Chain Reaction</span>
               <div className="mdl-layout-spacer"></div>
               <div className="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                <input type="button" value="Log Out" onClick={this.handleLogout} />
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                        onClick={this.handleLogout}>
+                  Logout
+                </button>
               </div>
             </div>
           </header>

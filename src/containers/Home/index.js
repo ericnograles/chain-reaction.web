@@ -19,6 +19,10 @@ class Home extends Component {
     }
   }
 
+  componentDidMount() {
+    componentHandler.upgradeDom();
+  }
+
   handleEmail(event) {
     this.props.dispatch(common.actions.keyPressEmail(event.target.value))
   }
