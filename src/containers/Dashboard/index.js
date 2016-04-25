@@ -14,6 +14,7 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
+    componentHandler.upgradeDom();
     this.props.dispatch(common.actions.findMemes());
   }
 
