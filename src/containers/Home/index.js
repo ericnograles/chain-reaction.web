@@ -21,6 +21,12 @@ class Home extends Component {
 
   componentDidMount() {
     componentHandler.upgradeDom();
+
+    // If we're already logged in, dispatch the action!
+    if (localStorage['CR_PROFILE']) {
+      var user = JSON.parse(localStorage['CR_PROFILE']);
+      this.props.dispatch(common.actions.receiveLogin(user.email, {data: user.profile}));
+    }
   }
 
   handleEmail(event) {
